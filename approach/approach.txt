@@ -1,0 +1,37 @@
+the following is my approach to creating a movie recommentation system.
+recommendation systems are boardly of three types ; content bases , collaborative filtering and hybrid one .
+I have implemented the content based system .
+
+1. **Data Loading and Preprocessing the metadata**:
+   - Load necessary libraries like `numpy` and `pandas`.
+   - Read the movie datasets (`tmdb_5000_movies.csv` and `tmdb_5000_credits.csv`) from Kaggle.
+   - Merge the datasets based on the movie title to consolidate movie information.
+   - Perform initial data cleaning and select relevant columns for analysis.
+
+2. **Text Data Processing**:
+   - Convert stringified lists in columns like `genres`, `keywords`, `cast`, and `crew` to actual lists using `ast.literal_eval`.
+   - Preprocess text data by dropping missing values, extracting relevant information
+  and formatting them appropriately.
+
+3. **Vectorization**:
+   - Vectorized text data using techniques like Count Vectorization to convert text into numerical 
+   representations suitable for machine learning algorithms.
+   - Created a feature matrix with a limited number of features using CountVectorizer.
+
+4. **Similarity Calculation**:
+   - Used cosine similarity to compute the similarity between movies based on their feature representations.
+   - Cosine similarity measures the cosine of the angle between two vectors, providing a similarity score between -1 and 1.
+
+5. **Recommendation Function**:
+   - Defined a function (`recommend`) to recommend movies based on user input.
+   - Retrieved the index of the input movie in the dataset.
+   - Calculated similarity scores between the input movie and all other movies.
+   - Sorted the movies based on similarity scores and recommend the top similar movies (excluding the input movie itself).
+
+6. **Saved the Models**:
+   - Save the processed movie dataset (`new`) and the similarity matrix (`similarity`) using pickle for later use.
+
+7. **Example of Usage**:
+   - An example of recommending movies is provided with the movie "Gandhi" as input.
+
+The code written thereby created a movie recommendation system of the type content-based.
